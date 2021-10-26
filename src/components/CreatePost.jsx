@@ -3,22 +3,14 @@ import moment from 'moment';
 
 export default function CreatePost({ fetchPosts }) {
     const [fields, setFields] = useState({
-        author: '',
         content: ''
     });
     const [fieldErrors, setFieldErrors] = useState({
-        author: '',
         content: ''
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (fields.author.trim() == "") {
-            return setFieldErrors({ ...fieldErrors, author: 'Author cannot be empty.' });
-        } else {
-            setFieldErrors({ ...fieldErrors, author: '' });
-        }
 
         if (fields.content.trim() == "") {
             return setFieldErrors({ ...fieldErrors, content: 'Content cannot be empty.' });
@@ -34,14 +26,15 @@ export default function CreatePost({ fetchPosts }) {
                 },
                 body: JSON.stringify({
                     ...fields,
+                    author: localStorage.getItem('_username'),
                     createdAt: moment()
                 })
             });
             const data = await res.json();
             // re-render posts
             fetchPosts();
-            setFields({ author: '', content: '' });
-            setFieldErrors({ author: '', content: '' });
+            setFields({ content: '' });
+            setFieldErrors({ content: '' });
         } catch (error) {
             console.error("Cannot create post, please try again later!");
         }
@@ -49,11 +42,6 @@ export default function CreatePost({ fetchPosts }) {
     return (
         <>
             <form onSubmit={handleSubmit} method="post">
-                <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="floatingInputAuthor" placeholder="." value={fields.author} onChange={e => setFields({ ...fields, author: e.target.value })} />
-                    <label htmlFor="floatingInputAuthor" className="fw-bold">Author</label>
-                    <small className="text-danger">{fieldErrors.author}</small>
-                </div>
                 <div className="form-floating mb-3">
                     <textarea className="form-control" id="floatingInputContent" placeholder="." onChange={e => setFields({ ...fields, content: e.target.value })} value={fields.content}></textarea>
                     <label htmlFor="floatingInputContent" className="fw-bold">Content</label>
