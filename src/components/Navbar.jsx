@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ username }) {
     return (
         <nav className="navbar navbar-expand-sm navbar-light py-4">
             <div className="container">
@@ -10,8 +10,9 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link fw-mediu" href="#">Home</a>
-                        <a className="nav-link fw-mediu" href="#">Settings</a>
+                        <a className="nav-link fw-medium" href="#">Home</a>
+                        <a className="nav-link fw-medium" href="#">Settings</a>
+                        <a className="nav-link fw-medium" href="#">{username}</a>
                     </div>
                 </div>
             </div>
