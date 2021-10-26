@@ -6,7 +6,7 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
     const [showFormEditPost, setShowFormEditPost] = useState(false);
 
     return (
-        <div className="p-3 border shadow-sm mb-1 rounded">
+        <div className="px-3 pt-2 pb-3 border shadow-sm mb-1 rounded">
             <div className="mb-2 d-flex align-items-center justify-content-between">
                 <div>
                     <small className="fw-bold text-dark me-2 d-inline-block">{author}</small>
