@@ -1,5 +1,15 @@
 {
-  "posts": [
+      "author": "Muhammad Pauzi",
+      "content": "Hello, this is just a dummy text content for check my website's card post. if it's ok, i'm very happy. if it's not i am gonna fixing it again.",
+      "createdAt": "2021-10-24T08:08:33.409Z",
+      "id": 2
+    },
+    {
+      "author": "Muhammad Pauzi (updated)",
+      "content": "I'm Good... (updated)",
+      "createdAt": "2021-10-24T09:06:11.602Z",
+      "id": 3
+    },
     {
       "author": "Anonymous (updated)",
       "content": "Hello... (updated)",
@@ -12,9 +22,3 @@
       "createdAt": "2021-10-24T09:12:20.807Z",
       "id": 5
     }
-  ],
-  "comments": [],
-  "profile": {
-    "name": "typicode"
-  }
-}

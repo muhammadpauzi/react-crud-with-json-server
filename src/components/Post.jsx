@@ -17,8 +17,8 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
                         <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuPostButton" data-bs-toggle="dropdown" aria-expanded="false">
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuPostButton">
-                            <li><button className="dropdown-item btn-sm" onClick={() => setShowFormEditPost(!showFormEditPost)}>{showFormEditPost ? 'close form edit' : 'show form edit'}</button></li>
-                            <li><button className="dropdown-item btn-sm" onClick={() => confirm("Are you sure to delete this post?") && handleDeletePost(id)}>delete</button></li>
+                            <li><button className="dropdown-item btn-sm" onClick={() => setShowFormEditPost(!showFormEditPost)}>{showFormEditPost ? 'Close edit form' : 'Show edit form'}</button></li>
+                            <li><button className="dropdown-item btn-sm" onClick={() => confirm("Are you sure to delete this post?") && handleDeletePost(id)}>Delete</button></li>
                         </ul>
                     </div>
                 </div>
