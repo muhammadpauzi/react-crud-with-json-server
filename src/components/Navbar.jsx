@@ -1,6 +1,14 @@
 import React from 'react';
 
 export default function Navbar({ username }) {
+
+    function handleLogout() {
+        if (confirm("Are you sure to logout ?")) {
+            localStorage.removeItem("_username");
+            window.location.reload();
+        }
+    }
+
     return (
         <nav className="navbar navbar-expand-sm navbar-light py-4">
             <div className="container">
@@ -13,6 +21,7 @@ export default function Navbar({ username }) {
                         <a className="nav-link fw-medium" href="#">Home</a>
                         <a className="nav-link fw-medium" href="#">Settings</a>
                         <a className="nav-link fw-medium" href="#">{username}</a>
+                        <button className="nav-link fw-medium btn btn-sm btn-danger text-white px-3" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
             </div>
