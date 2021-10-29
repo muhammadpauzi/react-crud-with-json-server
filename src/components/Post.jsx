@@ -1,9 +1,17 @@
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditPost from "./EditPost";
 
 export default function Post({ post: { id, author, content, createdAt }, handleDeletePost, fetchPosts }) {
     const [showFormEditPost, setShowFormEditPost] = useState(false);
+    const [showMore, setShowMore] = useState(false);
+
+    // useEffect(() => {
+    //     if (content.length >= 200) {
+    //         content.substr(0, 200) + '...';
+    //         // setShowMore(true);
+    //     }
+    // }, [])
 
     return (
         <div className="px-3 pt-2 pb-3 border shadow-sm mb-1 rounded">
@@ -25,7 +33,13 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
             </div>
             {showFormEditPost ?
                 <EditPost fetchPosts={fetchPosts} id={id} />
-                : <p className="m-0">{content}</p>}
+                :
+                <>
+                    <p className="mb-3">{!showMore && content.length >= 200 ? content.substr(0, 200) + '...' : content}
+                        {showMore && content}</p>
+                    {content.length >= 200 && <button className="btn btn-light btn-sm fw-bold" onClick={() => setShowMore(!showMore)}>Show {showMore ? 'less' : 'more'}</button>}
+                </>
+            }
 
         </div>
     )
