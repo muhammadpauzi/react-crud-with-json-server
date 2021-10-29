@@ -20,7 +20,7 @@ export default function Navbar({ username }) {
                     <div className="navbar-nav">
                         <a className="nav-link fw-medium" href="#">Home</a>
                         <a className="nav-link fw-medium" href="#">Settings</a>
-                        <a className="nav-link fw-medium" href="#">{username}</a>
+                        <a className="nav-link fw-medium me-0 me-md-2 me-sm-2 mb-2 mb-sm-0" href="#">{username}</a>
                         <button className="nav-link fw-medium btn btn-sm btn-danger text-white px-3" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
