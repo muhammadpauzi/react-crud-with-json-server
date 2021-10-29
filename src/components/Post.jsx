@@ -20,16 +20,18 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
                     <small className="fw-bold text-dark me-2 d-inline-block">{author}</small>
                     <small className="text-muted me-2 d-inline-block">{moment(createdAt).format('h:mm A, D/MM/YYYY')}</small>
                 </div>
-                <div>
-                    <div className="dropdown">
-                        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuPostButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuPostButton">
-                            <li><button className="dropdown-item btn-sm" onClick={() => setShowFormEditPost(!showFormEditPost)}>{showFormEditPost ? 'Close edit form' : 'Show edit form'}</button></li>
-                            <li><button className="dropdown-item btn-sm" onClick={() => confirm("Are you sure to delete this post?") && handleDeletePost(id)}>Delete</button></li>
-                        </ul>
+                {author === localStorage.getItem('_username') &&
+                    <div>
+                        <div className="dropdown">
+                            <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuPostButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuPostButton">
+                                <li><button className="dropdown-item btn-sm" onClick={() => setShowFormEditPost(!showFormEditPost)}>{showFormEditPost ? 'Close edit form' : 'Show edit form'}</button></li>
+                                <li><button className="dropdown-item btn-sm" onClick={() => confirm("Are you sure to delete this post?") && handleDeletePost(id)}>Delete</button></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
             {showFormEditPost ?
                 <EditPost fetchPosts={fetchPosts} id={id} />
