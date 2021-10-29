@@ -6,13 +6,6 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
     const [showFormEditPost, setShowFormEditPost] = useState(false);
     const [showMore, setShowMore] = useState(false);
 
-    // useEffect(() => {
-    //     if (content.length >= 200) {
-    //         content.substr(0, 200) + '...';
-    //         // setShowMore(true);
-    //     }
-    // }, [])
-
     return (
         <div className="px-3 pt-2 pb-3 border shadow-sm mb-1 rounded">
             <div className="mb-2 d-flex align-items-center justify-content-between">
