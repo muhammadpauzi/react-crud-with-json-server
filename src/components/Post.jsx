@@ -35,8 +35,7 @@ export default function Post({ post: { id, author, content, createdAt }, handleD
                 <EditPost fetchPosts={fetchPosts} id={id} />
                 :
                 <>
-                    <p className="mb-3">{!showMore && content.length >= 200 ? content.substr(0, 200) + '...' : content}
-                        {showMore && content}</p>
+                    <p className="mb-3">{showMore ? content : content.length >= 200 ? content.substr(0, 200) + '...' : content}</p>
                     {content.length >= 200 && <button className="btn btn-light btn-sm fw-bold" onClick={() => setShowMore(!showMore)}>Show {showMore ? 'less' : 'more'}</button>}
                 </>
             }
