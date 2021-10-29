@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditPost from "./EditPost";
 
 export default function Post({ post: { id, author, content, createdAt }, handleDeletePost, fetchPosts }) {
